@@ -10,7 +10,8 @@
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
-        "nwidart/laravel-modules": "^9.0"
+        "nwidart/laravel-modules": "^9.0",
+        "orchid/platform": "^12.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
