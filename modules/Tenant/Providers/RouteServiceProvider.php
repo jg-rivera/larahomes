@@ -2,6 +2,7 @@
 
 namespace Modules\Tenant\Providers;
 
+use Dashboard;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -34,8 +35,8 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
         $this->mapApiRoutes();
-
         $this->mapWebRoutes();
+        $this->mapPlatformRoutes();
     }
 
     /**
@@ -65,5 +66,20 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->moduleNamespace)
             ->group(module_path('Tenant', '/Routes/api.php'));
+    }
+
+    /**
+     * Define the "platform" routes for the application.
+     * 
+     * These routes are used in the Orchid dashboard.
+     * 
+     * @return void
+     */
+    protected function mapPlatformRoutes()
+    {
+        Route::domain((string) config('platform.domain'))
+            ->prefix(Dashboard::prefix('/'))
+            ->middleware(config('platform.middleware.private'))
+            ->group(module_path('Tenant', '/Routes/platform.php'));
     }
 }

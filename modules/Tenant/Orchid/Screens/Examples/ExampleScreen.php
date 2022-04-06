@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Orchid\Screens\Examples;
+namespace  Modules\Tenant\Orchid\Screens\Examples;
 
-use App\Orchid\Layouts\Examples\ChartBarExample;
-use App\Orchid\Layouts\Examples\ChartLineExample;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Modules\Tenant\Orchid\Layouts\Examples\ChartBarExample;
+use Modules\Tenant\Orchid\Layouts\Examples\ChartLineExample;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\ModalToggle;

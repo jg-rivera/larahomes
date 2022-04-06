@@ -4,6 +4,9 @@ namespace Modules\Tenant\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Orchid\Platform\Dashboard;
+use Orchid\Screen\Actions\Menu;
+use Orchid\Support\Facades\Dashboard as DashboardFacade;
 
 class TenantServiceProvider extends ServiceProvider
 {
@@ -51,7 +54,8 @@ class TenantServiceProvider extends ServiceProvider
             module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower
+            module_path($this->moduleName, 'Config/config.php'),
+            $this->moduleNameLower
         );
     }
 
