@@ -1,5 +1,14 @@
 <?php
 
 return [
-    'name' => '$STUDLY_NAME$'
+    'name' => '$STUDLY_NAME$',
+    'platform' =>  [
+        'mainMenu' => [
+            [
+                'menu' => Menu::make('$STUDLY_NAME$')
+                    ->icon('monitor')
+                'route' => 'platform.$LOWER_NAME$.list'
+            ]
+        ]
+    ]
 ];
