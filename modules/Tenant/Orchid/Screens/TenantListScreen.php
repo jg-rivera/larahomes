@@ -1,6 +1,6 @@
 <?php
 
-namespace  Modules\Tenant\Orchid\Screens;
+namespace Modules\Tenant\Orchid\Screens;
 
 use Modules\Tenant\Entities\Tenant;
 use Modules\Tenant\Orchid\Layouts\TenantListLayout;

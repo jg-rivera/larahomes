@@ -1,6 +1,6 @@
 <?php
 
-namespace  Modules\Tenant\Orchid\Screens;
+namespace Modules\Tenant\Orchid\Screens;
 
 use Illuminate\Http\Request;
 use Modules\Tenant\Entities\Tenant;

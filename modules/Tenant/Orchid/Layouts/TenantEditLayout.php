@@ -1,6 +1,6 @@
 <?php
 
-namespace  Modules\Tenant\Orchid\Layouts;
+namespace Modules\Tenant\Orchid\Layouts;
 
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Rows;
