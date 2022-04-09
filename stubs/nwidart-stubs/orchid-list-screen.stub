@@ -1,0 +1,40 @@
+<?php
+
+namespace $CLASS_NAMESPACE$;
+
+use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Screen;
+
+class $CLASS$ extends Screen
+{
+    public function query(): array
+    {
+        return [
+            '$MODEL_PLURAL_LOWER_NAME$' => $MODEL_NAME$::paginate()
+        ];
+    }
+
+    public function name(): ?string
+    {
+        return __('$MODEL_PLURAL_NAME$');
+    }
+
+    public function description(): ?string
+    {
+        return __('All $MODEL_PLURAL_LOWER_NAME$');
+    }
+
+    public function commandBar(): array
+    {
+        return [
+            Link::make(__('Create new'))
+                ->icon('pencil')
+                ->route('platform.$MODEL_LOWER_NAME$.edit')
+        ];
+    }
+
+    public function layout(): array
+    {
+        return [];
+    }
+}

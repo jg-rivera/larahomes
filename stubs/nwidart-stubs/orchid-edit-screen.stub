@@ -1,0 +1,78 @@
+<?php
+
+namespace $CLASS_NAMESPACE$;
+
+use Illuminate\Http\Request;
+use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Screen;
+use Orchid\Support\Facades\Alert;
+
+class $CLASS$ extends Screen
+{
+    public $MODEL_NAME$ $$MODEL_LOWER_NAME$;
+
+    public function query($MODEL_NAME$ $$MODEL_LOWER_NAME$): array
+    {
+        return [
+            '$MODEL_LOWER_NAME$' => $$MODEL_LOWER_NAME$
+        ];
+    }
+
+    private function exists(): bool
+    {
+        return $this->$MODEL_LOWER_NAME$->exists;
+    }
+
+    public function name(): ?string
+    {
+        return $this->exists() ? __('Edit $MODEL_LOWER_NAME$') : __('Creating a new $MODEL_LOWER_NAME$');
+    }
+
+    public function description(): ?string
+    {
+        return $this->exists() ? __('Edit $MODEL_LOWER_NAME$') : __('Creating a new $MODEL_LOWER_NAME$');
+    }
+
+    public function layout(): array
+    {
+        return [];
+    }
+
+    public function commandBar(): array
+    {
+        return [
+            Button::make(__('Create $MODEL_LOWER_NAME$'))
+                ->icon('pencil')
+                ->method('createOrUpdate')
+                ->canSee(!$this->exists()),
+
+            Button::make(__('Update'))
+                ->icon('note')
+                ->method('createOrUpdate')
+                ->canSee($this->exists()),
+
+            Button::make(__('Remove'))
+                ->icon('trash')
+                ->method('remove')
+                ->canSee($this->exists()),
+        ];
+    }
+
+    public function createOrUpdate($MODEL_NAME$ $$MODEL_LOWER_NAME$, Request $request)
+    {
+        $$MODEL_LOWER_NAME$->fill($request->get('$MODEL_LOWER_NAME$'))->save();
+
+        Alert::info(__('You have successfully created a $MODEL_LOWER_NAME$.'));
+
+        return redirect()->route('platform.$MODEL_LOWER_NAME$.list');
+    }
+
+    public function remove($MODEL_NAME$ $$MODEL_LOWER_NAME$)
+    {
+        $$MODEL_LOWER_NAME$->delete();
+
+        Alert::info(__('You have successfully deleted the $MODEL_LOWER_NAME$.'));
+
+        return redirect()->route('platform.$MODEL_LOWER_NAME$.list');
+    }
+}
