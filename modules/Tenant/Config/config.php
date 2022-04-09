@@ -7,13 +7,13 @@ return [
     'platform' =>  [
         'mainMenu' => [
             [
-                'menu' => Menu::make('Example screen')
+                'menu' => Menu::make('Tenant')
                     ->icon('monitor')
                     ->title('Navigation')
                     ->badge(function () {
                         return 6;
                     }),
-                'route' => 'platform.example'
+                'route' => 'platform.tenant.list'
             ]
         ]
     ]
