@@ -1,7 +1,5 @@
 <?php
 
-use Modules\Tenant\Orchid\Screens\TenantEditScreen;
-use Modules\Tenant\Orchid\Screens\TenantListScreen;
 use Tabuna\Breadcrumbs\Trail;
 
 /*
@@ -15,18 +13,18 @@ use Tabuna\Breadcrumbs\Trail;
 |
 */
 
-Route::screen('tenant', TenantListScreen::class)
-    ->name('platform.tenant.list')
+Route::screen('$LOWER_NAME$', $STUDLY_NAME$ListScreen::class)
+    ->name('platform.$LOWER_NAME$.list')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
             ->parent('platform.index')
-            ->push(__('All Tenants'), route('platform.tenant.list'));
+            ->push(__('All $STUDLY_NAME$'), route('platform.$LOWER_NAME$.list'));
     });
 
-Route::screen('tenant/{tenant?}', TenantEditScreen::class)
-    ->name('platform.tenant.edit')
-    ->breadcrumbs(function (Trail $trail, $tenant) {
+Route::screen('$LOWER_NAME$/{$LOWER_NAME$?}', $STUDLY_NAME$EditScreen::class)
+    ->name('platform.$LOWER_NAME$.edit')
+    ->breadcrumbs(function (Trail $trail, $$LOWER_NAME$) {
         return $trail
-            ->parent('platform.tenant.list')
-            ->push(__('Edit Tenant'), route('platform.tenant.edit', $tenant));
+            ->parent('platform.index')
+            ->push(__('Edit $STUDLY_NAME$'), route('platform.$LOWER_NAME$.edit', $$LOWER_NAME$));
     });
